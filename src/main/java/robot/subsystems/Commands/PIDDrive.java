@@ -12,22 +12,24 @@ public class PIDDrive extends Command {
     }
     @Override
     protected void initialize() {
-
+        drivePID.setSetpoint(Robot.drivetrain.getLeftDistance() + 2);
     }
 
     @Override
     protected void execute() {
+        drivePID.update(Robot.drivetrain.getLeftDistance());
+        Robot.drivetrain.setLeftSpeed(drivePID.getOutput());
 
     }
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return drivePID.isFinished();
     }
 
     @Override
     protected void end() {
-
+        drivePID.reset();
     }
 
 }

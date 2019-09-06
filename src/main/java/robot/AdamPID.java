@@ -2,16 +2,16 @@ package robot;
 
 public class AdamPID {
     AdamPID adampid = new AdamPID(1, 1, 1, 1);
-    public double kP;
-    public double kI;
-    public double kD;
-    public double LoopTime;
-    public double error;
-    public double Integral = 0;
-    public double lastError = error;
-    public double derivative;
-    public double setpoint;
-    public double distance;
+    private double kP;
+    private double kI;
+    private double kD;
+    private double LoopTime;
+    private double error;
+    private double Integral = 0;
+    private double lastError = error;
+    private double derivative;
+    private double setpoint;
+    private double distance;
     public AdamPID (double input_kP, double input_kI, double input_kD, double input_LoopTime) {
         kP = input_kP;
         kI = input_kI;
@@ -44,6 +44,9 @@ public class AdamPID {
     }
     public double getOutput() {
         return kP * error + kI * Integral + kD * derivative;
+    }
+    public boolean isFinished(){
+       return error < 0.1 && error > -0.1;
     }
     public void reset(){
         Integral = 0;
