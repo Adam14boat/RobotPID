@@ -8,7 +8,7 @@ public class PIDDrive extends Command {
     AdamPID drivePID = new AdamPID(1,0,0,0.02);
 
     public PIDDrive(){
-        requires(Robot.example);
+        requires(Robot.drivetrain);
     }
     @Override
     protected void initialize() {
