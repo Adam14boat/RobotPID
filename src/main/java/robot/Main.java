@@ -1,4 +1,4 @@
-package com.company;
+package robot;
 
 public class Main {
 
