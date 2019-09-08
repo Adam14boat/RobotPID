@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import robot.subsystems.Commands.PIDDrive;
 import robot.subsystems.DrivetrainSubsystem;
 
 
@@ -80,6 +81,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
+        PIDDrive drive = new PIDDrive();
+        drive.start();
         m_autonomousCommand = m_chooser.getSelected();
         if (m_autonomousCommand != null) {
             m_autonomousCommand.start();

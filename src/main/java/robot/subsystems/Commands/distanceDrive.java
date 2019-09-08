@@ -18,12 +18,13 @@ private int distance;
 
     @Override
     protected void execute() {
-        robot.example.setspeed(0.2,0.2);
+//        robot.drivetrain.setspeed(0.2,0.2);
     }
 
     @Override
     protected boolean isFinished() {
-        return robot.example.getLeftDistance() > distance && robot.example.getRightDistance() > distance;
+        return true;
+//        return robot.example.getLeftDistance() > distance && robot.example.getRightDistance() > distance;
     }
 
     @Override
@@ -33,7 +34,7 @@ private int distance;
 
     @Override
     protected void end() {
-        robot.example.setspeed(0,0);
+//        robot.example.setspeed(0,0);
     }
 
 }
